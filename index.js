@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const query = require("./routes/query");
 const app = express();
 
+// require("prod")(app);
+
 app.use(express.json());
 
 const uri =
