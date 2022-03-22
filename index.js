@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const query = require("./routes/query");
+const endpoints = require("./routes/endpoints");
 const app = express();
 
 require("./prod")(app);
@@ -15,7 +15,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 
-app.use("/api/query", query);
+app.use("/api/", endpoints);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
